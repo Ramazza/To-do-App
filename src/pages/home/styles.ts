@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	background-image: linear-gradient( 109.6deg,  rgba(62,161,219,1) 11.2%, rgba(93,52,236,1) 100.2% );
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 `;
 
 export const Title = styled.span`
@@ -19,6 +18,7 @@ export const Title = styled.span`
 export const TaskContainer = styled.div`
 	display: flex;
 	justify-content: center;
+	padding-bottom: 1.5rem;
 `;
 
 export const Input = styled.input`
