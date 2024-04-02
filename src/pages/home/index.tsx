@@ -21,12 +21,24 @@ function Home() {
 		const storedActivities = localStorage.getItem('activities');
 		if (storedActivities) {
 			setToDo(JSON.parse(storedActivities));
+			setIsEmpty(true);
 		}
-		setIsEmpty(false);
+
+		if(toDo[0].activity !== '') {
+			setIsEmpty(false);
+		}
+
 	}, []);
 
 	useEffect(() => {
 		localStorage.setItem('activities', JSON.stringify(toDo));
+	}, [toDo]);
+
+	useEffect(() => {
+		if(toDo.length === 0) {
+			setToDo([{ activity: '', completed: false }]);
+			setIsEmpty(true);
+		}
 	}, [toDo]);
 
 	const handleAddActivity = () => {
